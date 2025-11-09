@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Paradise Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="hotel-name">🏨 Sunset Paradise Hotel</h1>
+        <p class="tagline">Your Dream Vacation Awaits</p>
+    </header>
+
+    
+    <main class="container">
+        
+      
+        <section class="section">
+            <h2></h2>
+            <div class="cards-container">
+                <div class="card card-fade">
+                    <h3>Deluxe Room</h3>
+                    <p class="price">1150/night</p>
+                    <p>King bed, ocean view, balcony</p>
+                </div>
+                
+                <div class="card card-slide">
+                    <h3>Suite Room</h3>
+                    <p class="price">2250/night</p>
+                    <p>Two rooms, premium amenities</p>
+                </div>
+                
+                <div class="card card-rotate">
+                    <h3>Presidential Suite</h3>
+                    <p class="price">5500/night</p>
+                    <p>Luxury living, private pool</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="section">
+            <h2></h2>
+            <div class="calculator-box">
+                <h3>Room Price Calculator</h3>
+                <div class="input-group">
+                    <label>Room Type:</label>
+                    <select id="roomType">
+                        <option value="150">Deluxe Room - 1150</option>
+                        <option value="250">Suite Room - 2250</option>
+                        <option value="500">Presidential Suite - $500</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Number of Nights:</label>
+                    <input type="number" id="nights" value="1" min="1">
+                </div>
+                
+                <button class="btn btn-calculate" onclick="calculateTotal()">Calculate Total</button>
+                
+                <div id="result" class="result-box"></div>
+            </div>
+        </section>
+
+      
+        <section class="section">
+            <h2></h2>
+            
+            <div class="animation-controls">
+                <button class="btn btn-primary" onclick="showModal()">Book Now</button>
+                <button class="btn btn-secondary" onclick="toggleAmenities()">View Amenities</button>
+                <button class="btn btn-accent" onclick="startLoadingAnimation()">Check Availability</button>
+            </div>
+
+          
+            <div id="amenities" class="amenities-box hidden">
+                <h3>Hotel Amenities</h3>
+                <ul>
+                    <li>🏊 Swimming Pool</li>
+                    <li>🍽️ Restaurant & Bar</li>
+                    <li>💪 Fitness Center</li>
+                    <li>🧖 Spa & Wellness</li>
+                    <li>📶 Free WiFi</li>
+                </ul>
+            </div>
+
+            
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Checking availability...</p>
+            </div>
+        </section>
+    </main>
+
+    
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>🎉 Book Your Stay</h2>
+            <form class="booking-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="date" required>
+                <button type="button" class="btn btn-success" onclick="confirmBooking()">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+  
+    <div id="successMessage" class="success-message hidden">
+        ✅ Booking Confirmed! Check your email for details.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
